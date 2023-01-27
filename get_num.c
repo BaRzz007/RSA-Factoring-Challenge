@@ -39,15 +39,12 @@ char *readln(int fd)
  * @line: line
  * Return: number on line
  */
-long double parseln(char *line)
+char *parseln(char *line)
 {
-	char *delim, *parsed_line, **endptr;
-	long double line_num;
+	char *delim, *parsed_line;
 
 	delim = "\n\t ";
 	parsed_line = strtok(line, delim);
-	endptr = &parsed_line;
-	line_num = strtold(parsed_line, endptr);
 
-	return line_num;
+	return parsed_line;
 }

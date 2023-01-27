@@ -4,20 +4,39 @@
  * factorize - prints the factors of @num
  * @num: number to be factorized
  */
-void factorize(long double num)
+void factorize(char *str)
 {
-	double i;
-	double rem;
+	unsigned long i;
+	mpz_t rem, num;
 
-	for (i = 2; i <= num / 2; i++)
+	mpz_init(rem);
+	mpz_init(num);
+	mpz_set_ui(rem, 0);
+	mpz_set_ui(num, 0);
+	mpz_set_str(num, str, 10);
+	i = 2;
+	while (1)
 	{
-		rem = fmod(num, i);
-		if (rem == 0)
+		if (mpz_mod_ui(rem, num, i) == 0)
 		{
-			printf("%.0Lf=%.0Lf*%.0f\n", num, num / i, i);
+			mpz_cdiv_q_ui(rem, num, i);
+			mpz_out_str(stdout, 10, num);
+			printf("=");
+			mpz_out_str(stdout, 10, rem);
+			printf("*%lu\n", i);
+			/**
+			 * mpz_out_str(stdout, 10, num2);
+			 * printf("*%lu\n", i);
+			 * printf("%.0Lf=%.0Lf*%.0f\n", num, num / i, i); 
+			 */
 			break;
 		}
 		else
+		{
+			i++;
 			continue;
+		}
 	}
+	mpz_clear(rem);
+	mpz_clear(num);
 }

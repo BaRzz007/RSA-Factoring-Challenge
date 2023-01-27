@@ -7,10 +7,9 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <string.h>
-#include <ctype.h>
-#include <math.h>
+#include <gmp.h>
 
-void factorize(long double);
+void factorize(char *);
 char *readln(int fd);
-long double parseln(char *);
+char *parseln(char *);
 #endif
