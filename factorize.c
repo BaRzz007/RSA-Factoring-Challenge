@@ -24,11 +24,6 @@ void factorize(char *str)
 			printf("=");
 			mpz_out_str(stdout, 10, rem);
 			printf("*%lu\n", i);
-			/**
-			 * mpz_out_str(stdout, 10, num2);
-			 * printf("*%lu\n", i);
-			 * printf("%.0Lf=%.0Lf*%.0f\n", num, num / i, i); 
-			 */
 			break;
 		}
 		else

@@ -21,8 +21,8 @@ int main(int argc, char *argv[])
 	{
 		num = parseln(buffer);
 		factorize(num);
+		free(buffer);
 	}
-	free(num);
 
 	return (EXIT_SUCCESS);
 }
